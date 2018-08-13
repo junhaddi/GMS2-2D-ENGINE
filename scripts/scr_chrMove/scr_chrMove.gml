@@ -6,75 +6,71 @@ key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_up);
 key_sit = keyboard_check(vk_down);
 
+//	Cal Direction
+var chr_movDir;
+chr_movDir = key_right - key_left;
+
 //	Set Speed
 chr_vspeed += chr_gravity;
-chr_hspeed = key_right - key_left;
+chr_hspeed = chr_movDir * chr_walkSpeed;
 clamp(chr_vspeed, -chr_vspeedMax, chr_vspeedMax);
 
 //	Set Xdir
-if (chr_hspeed != 0)
+if (chr_movDir != 0)
 {
-	chr_xdir = chr_hspeed;
+	chr_xdir = chr_movDir;
 }
 
-//	Jump
-if (key_jump && chr_jumpCount > 1)
+//	Set Jump
+if (key_jump && chr_jumpCount > 0)
 {
 	chr_vspeed = -chr_jumpPower;
 	chr_jumpCount -= 1;
 }
 
 //	Horizontal Collision
-repeat (abs(chr_hspeed * chr_walkSpeed))
+repeat (abs(chr_hspeed))
 {
-    var mov;
-    mov = false;
-    if (place_meeting(x + chr_hspeed, y, Block))
+    var chr_mov;
+    chr_mov = false;
+    if (place_meeting(x + chr_movDir, y, Block))
     {
 		//	climb
         for (var i = 1; i <= chr_slopeMax; i++)
         {
-            if (!place_meeting(x + chr_hspeed, y - i, Block))
+            if (!place_meeting(x + chr_movDir, y - i, Block))
             {
-                x += chr_hspeed;
+                x += chr_movDir;
                 y -= i;
-                mov = true;   
+                chr_mov = true;  
+				show_debug_message("climb");
                 break;
             }
         }
-        if (mov == false)
+        if (chr_mov == false)
         {
-            chr_hspeed = 0;
+            chr_movDir = 0;
+			show_debug_message("block");
         }
     }
 	else
 	{
 		//	Down
-        for (var i = chr_slopeMax; i >= 1; i--)
+        if (!place_meeting(x + chr_movDir, y + 1, Block) && place_meeting(x + chr_movDir, y + 2, Block))
         {
-            if (!place_meeting(x + chr_hspeed, y + i, Block))
-            {
-                if (place_meeting(x + chr_hspeed, y + i + 1, Block))
-                {
-                    x += chr_hspeed; 
-                    y += i;     
-                    mov = true;    
-                }
-            }
+            x += chr_movDir; 
+            y += 1;     
+            chr_mov = true;
+			show_debug_message("down");
         }
-        if (mov == false) 
+        if (chr_mov == false) 
         {
-            x += chr_hspeed; 
+            x += chr_movDir; 
         }
     }
 }
 
 //	Vertical Collision
-if (place_meeting(x, y + 1, Block))
-{
-	chr_jumpCount = chr_jumpCountMax;
-}
-
 if (place_meeting(x, y + chr_vspeed, Block))
 {
 	while (!place_meeting(x, y + sign(chr_vspeed), Block))
@@ -84,3 +80,9 @@ if (place_meeting(x, y + chr_vspeed, Block))
 	chr_vspeed = 0;
 }
 y += chr_vspeed;
+
+//	Jump Reset
+if (place_meeting(x, y + 1, Block) && chr_vspeed == 0)
+{
+	chr_jumpCount = chr_jumpCountMax;
+}
