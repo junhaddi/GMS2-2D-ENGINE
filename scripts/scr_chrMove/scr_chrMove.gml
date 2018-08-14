@@ -43,15 +43,20 @@ repeat (abs(chr_hspeed))
                 x += chr_movDir;
                 y -= i;
                 chr_mov = true;  
-				show_debug_message("climb");
                 break;
             }
         }
         if (chr_mov == false)
         {
             chr_movDir = 0;
-			show_debug_message("block");
         }
+		
+		//	Wall Jump
+		if (chr_vspeed > 0)
+		{
+			chr_vspeed /= 1.2;
+			chr_jumpCount = chr_jumpCountMax;
+		}
     }
 	else
 	{
@@ -61,7 +66,6 @@ repeat (abs(chr_hspeed))
             x += chr_movDir; 
             y += 1;     
             chr_mov = true;
-			show_debug_message("down");
         }
         if (chr_mov == false) 
         {
