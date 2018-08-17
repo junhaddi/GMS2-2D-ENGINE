@@ -2,18 +2,8 @@
     "id": "69d76307-76b2-4214-b964-ec3e43835419",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "Platform",
+    "name": "Semi",
     "eventList": [
-        {
-            "id": "a1894d67-b89a-4890-9bfa-ce8f46fa41be",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "69d76307-76b2-4214-b964-ec3e43835419"
-        },
         {
             "id": "6dce603d-3e19-4eb1-9817-3b76364ddb03",
             "modelName": "GMEvent",
@@ -32,6 +22,16 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 8,
+            "m_owner": "69d76307-76b2-4214-b964-ec3e43835419"
+        },
+        {
+            "id": "bb18d92b-b218-495e-890e-859da07678f8",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
             "m_owner": "69d76307-76b2-4214-b964-ec3e43835419"
         }
     ],

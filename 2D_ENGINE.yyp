@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "3ae9e833-cd09-41a7-9beb-182a920b04df",
+            "Value": {
+                "id": "dab9ea04-54de-4c3e-8e1a-eb39e23a4b91",
+                "resourcePath": "objects\\Bridge\\Bridge.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "43950ddb-b9d7-42b7-8f48-e358f978f632",
             "Value": {
                 "id": "8d22e828-8739-427a-b919-7fb142df6f16",
@@ -111,10 +119,26 @@
             }
         },
         {
+            "Key": "65d8fee7-c141-4e01-8ce7-c577ecaf2cb5",
+            "Value": {
+                "id": "c6af2fb4-bf54-4352-8cbc-a2dabbb0d11f",
+                "resourcePath": "sprites\\spr_liftSemi\\spr_liftSemi.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "67865499-6872-4c35-a193-5975288137b9",
+            "Value": {
+                "id": "da7b8a6d-ff8c-46b3-b88e-0c81fd0c60c7",
+                "resourcePath": "sprites\\spr_moveBlock\\spr_moveBlock.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "69d76307-76b2-4214-b964-ec3e43835419",
             "Value": {
                 "id": "3aee59f7-d00b-4b42-a868-c329992e2d28",
-                "resourcePath": "objects\\Platform\\Platform.yy",
+                "resourcePath": "objects\\Semi\\Semi.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -154,7 +178,7 @@
             "Key": "8fb7ecf8-3466-43bd-9c22-1f4766077f40",
             "Value": {
                 "id": "1ab9c255-9e0a-48fc-93bf-b145e4c7745f",
-                "resourcePath": "sprites\\spr_platform\\spr_platform.yy",
+                "resourcePath": "sprites\\spr_semiBlock\\spr_semiBlock.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -204,6 +228,14 @@
                 "id": "68538c0e-5432-4067-b3df-fa0877c4e782",
                 "resourcePath": "views\\afe88bc6-5003-4407-8640-b068d1b0d239.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b5f91234-07c1-4053-8e87-d9cc56b75cc9",
+            "Value": {
+                "id": "80e02640-fe76-4ac6-8f04-833df1f5f6fc",
+                "resourcePath": "objects\\Lift\\Lift.yy",
+                "resourceType": "GMObject"
             }
         },
         {
